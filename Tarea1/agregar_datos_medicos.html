@@ -1,0 +1,70 @@
+<html>
+    <head>
+        <title>Inicio</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="./css/mystyle.css">
+        <script type="text/javascript" src="./js/jquery-3.4.1.min.js"></script>
+        <script type="text/javascript" src="./js/javascript.js"></script>
+    </head>
+    <body>
+        <!-- NavBar --> 
+
+        <ul>
+            <li><a class="active" href="index.html">Inicio</a></li>
+            <li><a href="agregar_datos_medicos.html">Agregar datos de médico</a></li>
+            <li><a href="ver_medicos.html">Ver médicos</a></li>
+            <li><a href="publicar_solicitud_atencion.html">Publicar solicitud de atención</a></li>
+            <li><a href="ver_solicitudes_atencion.html">Ver solicitudes de atención</a></li>
+        </ul>
+
+        <div>
+            <form action="#">
+                Region:
+                <select id="regiones" name="region-medico"></select>
+                <br>
+                Comuna:
+                <select id="comunas" name="comuna-medico"></select>
+                <br>
+                Nombre:
+                <input type="text" name="nombre-medico" size="30">
+                <br>
+                Experiencia:
+                <textarea rows="8" cols="40" name="experiencia-medico" maxlength="500"></textarea>
+                <br>
+                Especialidades:
+                <select name="especialidades-medico" multiple>
+                    <option value="Cardiología">Cardiología</option>
+                    <option value="Gastroenterología">Gastroenterología</option>
+                    <option value="opel">Opel</option>
+                    <option value="audi">Audi</option>
+                    <option value="audi">Audi</option>
+                    <option value="volvo">Volvo</option>
+                    <option value="saab">Saab</option>
+                    <option value="opel">Opel</option>
+                    <option value="audi">Audi</option>
+                    <option value="audi">Audi</option>
+                    <option value="volvo">Volvo</option>
+                    <option value="saab">Saab</option>
+                    <option value="opel">Opel</option>
+                    <option value="audi">Audi</option>
+                    <option value="audi">Audi</option>
+                    <option value="volvo">Volvo</option>
+                    <option value="saab">Saab</option>
+                    <option value="opel">Opel</option>
+                    <option value="audi">Audi</option>
+                    <option value="audi">Audi</option>
+                    <option value="volvo">Volvo</option>
+                    <option value="saab">Saab</option>
+                    <option value="opel">Opel</option>
+                    <option value="audi">Audi</option>
+                    <option value="audi">Audi</option>
+                </select>
+                <br>
+                Foto medico:
+                <input type="file">
+                <input type="button" value="Agregar otra foto" onclick="">
+            </form>
+        </div>
+    </body>
+</html>
