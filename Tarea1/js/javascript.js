@@ -63,8 +63,27 @@ var RegionesYcomunas = {
 }
 
 
+
+
+
+
+
+
+
 jQuery(document).ready(function () {
 
+	// Agregar nuevos inputs de archivos
+	$("#boton-foto-medico").click(function(){
+		var numero_inputs = $("#div-foto-medico input[type='file']").length
+		if(numero_inputs<5){
+			$("#div-foto-medico").append("<input class='form-control-file' name='foto-medico' id='foto-medico' type='file'>");
+		}
+		else
+			alert("Maximo 5 archivos")
+	  });
+
+
+	// Para que las comunas se filtren por region
 	var iRegion = 0;
 	var htmlRegion = '<option value="sin-region">Seleccione región</option><option value="sin-region">--</option>';
 	var htmlComunas = '<option value="sin-region">Seleccione comuna</option><option value="sin-region">--</option>';
@@ -105,5 +124,118 @@ jQuery(document).ready(function () {
 			alert('selecciones Región');
 		}
 	});
+
+	// Verifica que se haya selecionado una regiony una comuna
+
+	function chequearRegionComuna(idRegion,idComuna){
+		var region = $(idRegion).val();
+		var comuna = $(idComuna).val();
+
+		if(region==="sin-region"){
+			alert("Seleccione una region");
+			return false
+		}
+		else if(comuna==="sin-comuna"){
+			alert("Seleccione una comuna");
+			return false
+		}
+		else{
+			return true
+		}
+	}
+
+	// Verifica que el nombre no sea vacio y que el largo sea menor a 30
+
+	function chequearNombre(idNombre){
+		var nombre = $(idNombre).val();
+
+		if(nombre===""){
+			alert("Ingrese su nombre");
+			return false
+		}
+		else if(nombre.length>30){
+			alert("Nombre: Maximo 30 caracteres");
+			return false
+		}
+		else{
+			return true
+		}
+	}
+
+	// Verifica que la experiencia tenga un largo menor a 500
+
+	function chequearExperiencia(idExperiencia){
+		var experiencia = $(idExperiencia).val();
+
+		if(experiencia.length>500){
+			alert("Experiencia: Maximo 500 caracteres");
+			return false
+		}
+		else{
+			return true
+		}
+	}
+
+	// Valida que las especialidades sean maximo 5 y minimo 1
+
+	function chequearEspecialidades(idEspecialidades){
+		var especialidades = $(idEspecialidades)
+
+		if(especialidades.length>5 || especialidades.length<1){
+			alert("Especialidades: Maximo 5 especialidades seleccionadas, minimo 1");
+			return false
+		}
+		else{
+			return true
+		}
+	}
+
+	//Valida que las fotos sean min 1 y max 5
+
+	function chequearFotos(idFotos){
+		var fotos = $(idFotos)
+		var numeroFotos = 0
+
+		for(i=0;i<fotos.length;i++){
+			numeroFotos = numeroFotos + fotos[i].files.length
+		}
+		if(numeroFotos<1 || numeroFotos>5){
+			alert("Debe subir minimo 1 foto y maximo 5")
+			return false
+		}
+
+		return true
+	}
+
+	//Campo Opcional
+	//Chequea largo minimo 3 y maximo 80, y formato de usuario
+
+	function chequearTwitter(idTwitter){
+
+	}
+
+	//Campo Obligatorio
+	//Chequea formato de email
+
+	function chequearEmail(idEmail){
+
+	}
+
+	//Campo Opcional
+	//Chequea formato de numero movil
+
+	function chequearNumero(idNumero){
+
+	}
+
+
+
+	$("#formulario").submit(function(){
+		return chequearRegionComuna("#regiones","#comunas") && 
+		chequearNombre("#nombre-medico") && chequearExperiencia("#experiencia-medico") && 
+		chequearEspecialidades("#especialidades-medico option:selected") && chequearFotos("#div-foto-medico input[type='file']")
+	  });
+
+
 
 });

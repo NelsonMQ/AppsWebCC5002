@@ -1,70 +1,122 @@
 <html>
     <head>
-        <title>Inicio</title>
+        <title>Agregar datos médicos</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" type="text/css" href="./css/mystyle.css">
+        <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
         <script type="text/javascript" src="./js/jquery-3.4.1.min.js"></script>
         <script type="text/javascript" src="./js/javascript.js"></script>
     </head>
     <body>
-        <!-- NavBar --> 
 
-        <ul>
-            <li><a class="active" href="index.html">Inicio</a></li>
-            <li><a href="agregar_datos_medicos.html">Agregar datos de médico</a></li>
-            <li><a href="ver_medicos.html">Ver médicos</a></li>
-            <li><a href="publicar_solicitud_atencion.html">Publicar solicitud de atención</a></li>
-            <li><a href="ver_solicitudes_atencion.html">Ver solicitudes de atención</a></li>
-        </ul>
+        <!-- Navbar -->
 
-        <div>
-            <form action="#">
-                Region:
-                <select id="regiones" name="region-medico"></select>
-                <br>
-                Comuna:
-                <select id="comunas" name="comuna-medico"></select>
-                <br>
-                Nombre:
-                <input type="text" name="nombre-medico" size="30">
-                <br>
-                Experiencia:
-                <textarea rows="8" cols="40" name="experiencia-medico" maxlength="500"></textarea>
-                <br>
-                Especialidades:
-                <select name="especialidades-medico" multiple>
-                    <option value="Cardiología">Cardiología</option>
-                    <option value="Gastroenterología">Gastroenterología</option>
-                    <option value="opel">Opel</option>
-                    <option value="audi">Audi</option>
-                    <option value="audi">Audi</option>
-                    <option value="volvo">Volvo</option>
-                    <option value="saab">Saab</option>
-                    <option value="opel">Opel</option>
-                    <option value="audi">Audi</option>
-                    <option value="audi">Audi</option>
-                    <option value="volvo">Volvo</option>
-                    <option value="saab">Saab</option>
-                    <option value="opel">Opel</option>
-                    <option value="audi">Audi</option>
-                    <option value="audi">Audi</option>
-                    <option value="volvo">Volvo</option>
-                    <option value="saab">Saab</option>
-                    <option value="opel">Opel</option>
-                    <option value="audi">Audi</option>
-                    <option value="audi">Audi</option>
-                    <option value="volvo">Volvo</option>
-                    <option value="saab">Saab</option>
-                    <option value="opel">Opel</option>
-                    <option value="audi">Audi</option>
-                    <option value="audi">Audi</option>
-                </select>
-                <br>
-                Foto medico:
-                <input type="file">
-                <input type="button" value="Agregar otra foto" onclick="">
-            </form>
-        </div>
+        <nav class="navbar navbar-expand-lg navbar-dark p m-0" style="background-color: #00539C;">
+            <a class="navbar-brand text-white" href="#"><i class="fa fa-rocket" aria-hidden="true"></i></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item mx-2">
+                  <a class="nav-link text-white" href="index.html">Inicio</a>
+                </li>
+                <li class="nav-item mx-2">
+                  <a class="nav-link text-white" href="agregar_datos_medicos.html">Agregar datos de médico</a>
+                </li>
+                <li class="nav-item mx-2">
+                    <a class="nav-link text-white" href="ver_medicos.html">Ver médicos</a>
+                </li>
+                <li class="nav-item mx-2">
+                    <a class="nav-link text-white" href="publicar_solicitud_atencion.html">Publicar solicitud de atención</a>
+                </li>
+                <li class="nav-item mx-2">
+                    <a class="nav-link text-white" href="ver_solicitudes_atencion.html">Ver solicitudes de atención</a>
+                </li>
+              </ul>
+            </div>
+        </nav>
+
+        
+        <!-- Form -->
+
+        <form class="m-4" action="#" id="formulario">
+            <div class="form-row p-4 d-flex justify-content-center">
+                <div class="form-group col">
+                    <label for="regiones">Región</label>
+                    <select id="regiones" name="region-medico" class="form-control" required></select>
+                </div>
+                <div class="form-group col">
+                    <label for="comunas">Comuna</label>
+                    <select id="comunas" name="comuna-medico" class="form-control" required></select>
+                </div>
+                <div class="form-group col-4">
+                    <label for="">Nombre</label>
+                    <input type="text" name="nombre-medico" size="30" maxlength="30" class="form-control" id="nombre-medico" required>
+                </div>
+            </div>
+            <div class="form-row p-4 d-flex justify-content-center">
+                <div class="form-group col-2">
+                    <label for="">Experiencia</label>
+                    <textarea class="form-control" rows="8" cols="40" name="experiencia-medico" id="experiencia-medico" maxlength="500"></textarea>
+                </div>
+                <div class="form-group col-4">
+                    <label for="">Especialidades</label>
+                    <select class="form-control" name="especialidades-medico" id="especialidades-medico" size="8" multiple required>
+                        <option value="Cardiología">Cardiología</option>
+                        <option value="Gastroenterología">Gastroenterología</option>
+                        <option value="Endocrinología">Endocrinología</option>
+                        <option value="Epidemiología">Epidemiología</option>
+                        <option value="Geriatría">Geriatría</option>
+                        <option value="Hematología">Hematología</option>
+                        <option value="Infectología">Infectología</option>
+                        <option value="Medicina del deporte">Medicina del deporte</option>
+                        <option value="Medicina de urgencias">Medicina de urgencias</option>
+                        <option value="Medicina interna">Medicina interna</option>
+                        <option value="Nefrología">Nefrología</option>
+                        <option value="Neumología">Neumología</option>
+                        <option value="Neurología">Neurología</option>
+                        <option value="Nutriología">Nutriología</option>
+                        <option value="Oncología">Oncología</option>
+                        <option value="Pediatría">Pediatría</option>
+                        <option value="Psiquiatría">Psiquiatría</option>
+                        <option value="Reumatología">Reumatología</option>
+                        <option value="Toxicología">Toxicología</option>
+                        <option value="Dermatología">Dermatología</option>
+                        <option value="Ginecología">Ginecología</option>
+                        <option value="Oftalmología">Oftalmología</option>
+                        <option value="Otorrinolaringología">Otorrinolaringología</option>
+                        <option value="Urología">Urología</option>
+                        <option value="Traumatología">Traumatología</option>
+                    </select>
+                </div>
+                <div class="form-group col-5">
+                    <div id="div-foto-medico">
+                        <label for="">Foto médico</label>
+                        <input class="form-control-file" name="foto-medico" id="foto-medico" type="file">
+                    </div>
+                    <div class="mx-auto">
+                        <input type="button" id="boton-foto-medico" value="Agregar otra foto" class="mt-4">
+                    </div>
+                </div>
+            </div>
+            <div class="form-row p-4 d-flex justify-content-center">
+                <div class="form-group col">
+                    <label for="">Twitter de contacto</label>
+                    <input class="form-control" name="twitter-medico" type="text">
+                </div>
+                <div class="form-group col-4">
+                    <label for="">Email de contacto</label>
+                    <input class="form-control" name="email-medico" type="email" required>
+                </div>
+                <div class="form-group col">
+                    <label for="">Número de contacto</label>
+                    <input class="form-control" name="celular-medico" type="tel">
+                </div>
+            </div>
+            <input type="submit">
+        </form>
+
     </body>
 </html>
