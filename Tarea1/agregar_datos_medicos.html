@@ -1,11 +1,12 @@
-<html>
+<!DOCTYPE html>
+<html lang="es">
     <head>
         <title>Agregar datos médicos</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
-        <script type="text/javascript" src="./js/jquery-3.4.1.min.js"></script>
-        <script type="text/javascript" src="./js/javascript.js"></script>
+        <script src="./js/jquery-3.4.1.min.js"></script>
+        <script src="./js/javascript.js"></script>
     </head>
     <body>
 
@@ -40,83 +41,94 @@
 
         
         <!-- Form -->
-
-        <form class="m-4" action="#" id="formulario">
-            <div class="form-row p-4 d-flex justify-content-center">
-                <div class="form-group col">
-                    <label for="regiones">Región</label>
-                    <select id="regiones" name="region-medico" class="form-control" required></select>
-                </div>
-                <div class="form-group col">
-                    <label for="comunas">Comuna</label>
-                    <select id="comunas" name="comuna-medico" class="form-control" required></select>
-                </div>
-                <div class="form-group col-4">
-                    <label for="">Nombre</label>
-                    <input type="text" name="nombre-medico" size="30" maxlength="30" class="form-control" id="nombre-medico" required>
-                </div>
-            </div>
-            <div class="form-row p-4 d-flex justify-content-center">
-                <div class="form-group col-2">
-                    <label for="">Experiencia</label>
-                    <textarea class="form-control" rows="8" cols="40" name="experiencia-medico" id="experiencia-medico" maxlength="500"></textarea>
-                </div>
-                <div class="form-group col-4">
-                    <label for="">Especialidades</label>
-                    <select class="form-control" name="especialidades-medico" id="especialidades-medico" size="8" multiple required>
-                        <option value="Cardiología">Cardiología</option>
-                        <option value="Gastroenterología">Gastroenterología</option>
-                        <option value="Endocrinología">Endocrinología</option>
-                        <option value="Epidemiología">Epidemiología</option>
-                        <option value="Geriatría">Geriatría</option>
-                        <option value="Hematología">Hematología</option>
-                        <option value="Infectología">Infectología</option>
-                        <option value="Medicina del deporte">Medicina del deporte</option>
-                        <option value="Medicina de urgencias">Medicina de urgencias</option>
-                        <option value="Medicina interna">Medicina interna</option>
-                        <option value="Nefrología">Nefrología</option>
-                        <option value="Neumología">Neumología</option>
-                        <option value="Neurología">Neurología</option>
-                        <option value="Nutriología">Nutriología</option>
-                        <option value="Oncología">Oncología</option>
-                        <option value="Pediatría">Pediatría</option>
-                        <option value="Psiquiatría">Psiquiatría</option>
-                        <option value="Reumatología">Reumatología</option>
-                        <option value="Toxicología">Toxicología</option>
-                        <option value="Dermatología">Dermatología</option>
-                        <option value="Ginecología">Ginecología</option>
-                        <option value="Oftalmología">Oftalmología</option>
-                        <option value="Otorrinolaringología">Otorrinolaringología</option>
-                        <option value="Urología">Urología</option>
-                        <option value="Traumatología">Traumatología</option>
-                    </select>
-                </div>
-                <div class="form-group col-5">
-                    <div id="div-foto-medico">
-                        <label for="">Foto médico</label>
-                        <input class="form-control-file" name="foto-medico" id="foto-medico" type="file">
+        <div class="p-4 border d-flex justify-content-center" style="background-color: rgb(238,230,224)">
+            <form class="m-4 rounded" action="#" id="formulario" style="width: 80%">
+                <div class="form-row p-4 d-flex justify-content-center">
+                    <div class="form-group col-4 mx-auto">
+                        <label class="font-weight-bold">Nombre</label>
+                        <input type="text" name="nombre-medico" size="30" maxlength="30" class="form-control" id="nombre-medico" required>
                     </div>
-                    <div class="mx-auto">
-                        <input type="button" id="boton-foto-medico" value="Agregar otra foto" class="mt-4">
+                    <div class="form-group col-4 mx-auto">
+                        <label class="font-weight-bold">Email de contacto</label>
+                        <input class="form-control" name="email-medico" id="email-medico" size="80" type="email" required>
                     </div>
                 </div>
-            </div>
-            <div class="form-row p-4 d-flex justify-content-center">
-                <div class="form-group col">
-                    <label for="">Twitter de contacto</label>
-                    <input class="form-control" name="twitter-medico" type="text">
+                <div class="form-row p-4 d-flex justify-content-center">
+                    <div class="form-group col-4 mx-auto">
+                        <label class="font-weight-bold">Twitter de contacto</label>
+                        <input class="form-control" name="twitter-medico" id="twitter-medico" size="80" type="text">
+                    </div>
+                    <div class="form-group col-4 mx-auto">
+                        <label class="font-weight-bold">Número de contacto</label>
+                        <input class="form-control" name="celular-medico" id="celular-medico" size="15" type="tel">
+                    </div>
                 </div>
-                <div class="form-group col-4">
-                    <label for="">Email de contacto</label>
-                    <input class="form-control" name="email-medico" type="email" required>
+                <div class="form-row p-4 d-flex justify-content-center">
+                    <div class="form-group col-4 mx-auto">
+                        <label class="font-weight-bold" for="regiones">Región</label>
+                        <select id="regiones" name="region-medico" class="form-control" required>
+                            <option value="" label="Region" disabled></option>
+                        </select>
+                    </div>
+                    <div class="form-group col-4 mx-auto">
+                        <label class="font-weight-bold" for="comunas">Comuna</label>
+                        <select id="comunas" name="comuna-medico" class="form-control" required>
+                            <option value="" label="Comuna" disabled></option>
+                        </select>
+                    </div>
                 </div>
-                <div class="form-group col">
-                    <label for="">Número de contacto</label>
-                    <input class="form-control" name="celular-medico" type="tel">
+                <div class="form-row p-4 d-flex justify-content-center">
+                    <div class="form-group col-4 mx-auto">
+                        <label class="font-weight-bold">Experiencia</label>
+                        <textarea class="form-control" rows="8" cols="40" name="experiencia-medico" id="experiencia-medico" maxlength="500"></textarea>
+                    </div>
+                    <div class="form-group col-4 mx-auto">
+                        <label class="font-weight-bold">Especialidades</label>
+                        <select class="form-control" name="especialidades-medico" id="especialidades-medico" size="8" multiple required>
+                            <option value="Cardiología">Cardiología</option>
+                            <option value="Gastroenterología">Gastroenterología</option>
+                            <option value="Endocrinología">Endocrinología</option>
+                            <option value="Epidemiología">Epidemiología</option>
+                            <option value="Geriatría">Geriatría</option>
+                            <option value="Hematología">Hematología</option>
+                            <option value="Infectología">Infectología</option>
+                            <option value="Medicina del deporte">Medicina del deporte</option>
+                            <option value="Medicina de urgencias">Medicina de urgencias</option>
+                            <option value="Medicina interna">Medicina interna</option>
+                            <option value="Nefrología">Nefrología</option>
+                            <option value="Neumología">Neumología</option>
+                            <option value="Neurología">Neurología</option>
+                            <option value="Nutriología">Nutriología</option>
+                            <option value="Oncología">Oncología</option>
+                            <option value="Pediatría">Pediatría</option>
+                            <option value="Psiquiatría">Psiquiatría</option>
+                            <option value="Reumatología">Reumatología</option>
+                            <option value="Toxicología">Toxicología</option>
+                            <option value="Dermatología">Dermatología</option>
+                            <option value="Ginecología">Ginecología</option>
+                            <option value="Oftalmología">Oftalmología</option>
+                            <option value="Otorrinolaringología">Otorrinolaringología</option>
+                            <option value="Urología">Urología</option>
+                            <option value="Traumatología">Traumatología</option>
+                        </select>
+                    </div>
                 </div>
-            </div>
-            <input type="submit">
-        </form>
+                <div class="form-row p-4 d-flex justify-content-center">
+                    <div class="form-group col-8 d-flex justify-content-center align-middle">
+                        <div id="div-foto-medico">
+                            <label class="font-weight-bold">Fotos médico</label>
+                            <input class="form-control-file" name="foto-medico" id="foto-medico" type="file">
+                        </div>
+                        <div class="mx-5 my-auto">
+                            <input type="button" id="boton-foto-medico" value="Agregar otra foto" class="mt-4 btn btn-primary">
+                        </div>
+                    </div>
+                </div>
+                <div class="col text-center p-4">
+                    <input type="submit" value="Agregar" class="btn btn-success">
+                </div>
+            </form>
+        </div>
 
     </body>
 </html>

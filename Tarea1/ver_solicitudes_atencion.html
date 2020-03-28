@@ -1,11 +1,13 @@
-<html>
+<!DOCTYPE html>
+<html lang="es">
     <head>
         <title>Solicitudes de atención</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
-        <script type="text/javascript" src="./js/jquery-3.4.1.min.js"></script>
-        <script type="text/javascript" src="./js/javascript.js"></script>
+        <link rel="stylesheet" type="text/css" href="./css/mycss.css">
+        <script src="./js/jquery-3.4.1.min.js"></script>
+        <script src="./js/javascript.js"></script>
     </head>
     <body>
         
@@ -37,5 +39,89 @@
               </ul>
             </div>
         </nav>
+
+        <!-- Table -->
+
+        <div class="row p-4">
+            <table class="table mx-auto justify-content-center border" style="width: 80%">
+                <thead>
+                <tr>
+                    <th scope="col">Nombre Solicitante</th>
+                    <th scope="col">Especialidad</th>
+                    <th scope="col">Comuna</th>
+                    <th scope="col">Datos de Contacto</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class='clickable-row' data-href='detalle_solicitud.html'>
+                    <th scope="row">José Puentes</th>
+                    <td>Neumología</td>
+                    <td>
+                        Iquique <br> <br>
+                        Alto Hospicio
+                    </td>
+                    <td>
+                        jose.puentes@gmail.com <br> <br>
+                        +56954829543
+                    </td>
+                </tr>
+                <tr class='clickable-row' data-href='detalle_solicitud.html'>
+                    <th scope="row">Carlos Aguilera</th>
+                    <td>Epidemiología</td>
+                    <td>
+                        Concepción
+                    </td>
+                    <td>
+                        carlos.aguilera@hotmail.com <br> <br>
+                        @carloaguil <br> <br>
+                        +56963865295
+                    </td>
+                </tr>
+                <tr class='clickable-row' data-href='detalle_solicitud.html'>
+                    <th scope="row">Alejandro Barrera</th>
+                    <td>Nutriología</td>
+                    <td>
+                        Maipú <br> <br>
+                        Santiago <br> <br>
+                        Providencia <br> <br>
+                        San Miguel <br> <br>
+                        Las Condes
+                    </td>
+                    <td>
+                        alejandro.barrera@gmail.com
+                    </td>
+                </tr>
+                <tr class='clickable-row' data-href='detalle_solicitud.html'>
+                    <th scope="row">María Centeno</th>
+                    <td>Otorrinolaringología</td>
+                    <td>
+                        Curicó <br> <br>
+                        Romeral <br> <br>
+                        Talca <br> <br>
+                        Parral
+                    </td>
+                    <td>
+                        maria.centeno@gmail.com <br> <br>
+                        @maricente
+                    </td>
+                </tr>
+                <tr class='clickable-row' data-href='detalle_solicitud.html'>
+                    <th scope="row">Esperanza Pino</th>
+                    <td>Traumatología</td>
+                    <td>
+                        Ercilla <br> <br>
+                        Lumaco <br> <br>
+                        Victoria
+                    </td>
+                    <td>
+                        esperanza.pino@hotmail.com <br> <br>
+                        @espepino <br> <br>
+                        +56963451744
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
     </body>
 </html>

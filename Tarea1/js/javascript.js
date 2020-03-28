@@ -62,17 +62,242 @@ var RegionesYcomunas = {
 	}]
 }
 
-
-
-
-
-
-
-
-
 jQuery(document).ready(function () {
+	function chequearRegionComuna(idRegion,idComuna){
+		var region = $(idRegion).val();
+		var comuna = $(idComuna).val();
 
-	// Agregar nuevos inputs de archivos
+		if(region==="sin-region"){
+			alert("Seleccione una region");
+			return false
+		}
+		else if(comuna==="sin-comuna"){
+			alert("Seleccione una comuna");
+			return false
+		}
+		else{
+			return true
+		}
+	}
+
+	// Verifica que el nombre no sea vacio y que el largo sea menor a 30
+
+	function chequearNombre(idNombre){
+		var nombre = $(idNombre).val();
+
+		if(nombre.length<1){
+			alert("Ingrese su nombre");
+			return false
+		}
+		else if(nombre.length>30){
+			alert("Nombre: Maximo 30 caracteres");
+			return false
+		}
+		else{
+			return true
+		}
+	}
+
+	// Verifica que la experiencia tenga un largo menor a 500
+
+	function chequearExperiencia(idExperiencia){
+		var experiencia = $(idExperiencia).val();
+
+		if(experiencia.length>500){
+			alert("Experiencia: Maximo 500 caracteres");
+			return false
+		}
+		else{
+			return true
+		}
+	}
+
+	// Valida que las especialidades sean maximo 5 y minimo 1
+
+	function chequearEspecialidades(idEspecialidades){
+		var especialidades = $(idEspecialidades);
+
+		if(especialidades.length>5 || especialidades.length<1){
+			alert("Especialidades: Maximo 5 especialidades seleccionadas, minimo 1");
+			return false
+		}
+		else{
+			return true
+		}
+	}
+
+	//Valida que las fotos sean min 1 y max 5
+
+	function chequearFotos(idFotos){
+		var fotos = $(idFotos);
+		var numeroFotos = 0;
+
+		for(i=0;i<fotos.length;i++){
+			numeroFotos = numeroFotos + fotos[i].files.length
+		}
+		if(numeroFotos<1 || numeroFotos>5){
+			alert("Debe subir minimo 1 foto y maximo 5")
+			return false
+		}
+
+		return true
+	}
+
+
+	// Chequea el formato del usuario de Twitter
+
+	function chequearFormatoTwitter(twitter){
+		var re = /^@(\w){1,15}$/;
+
+		return re.test(String(twitter))
+	}
+
+
+	//Chequea el formato del email
+
+	function chequearFormatoEmail(email){
+		var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+		return re.test(String(email).toLowerCase());
+	}
+
+
+	//Chequea el formato del numero
+
+	function chequearFormatoNumero(numero){
+		var re = /^\+?([0-9]{2})\)?[-. ]?([0-9]{5})[-. ]?([0-9]{4})$/;
+
+		return re.test(String(numero))
+	}
+
+
+	//Campo Opcional
+	//Chequea largo minimo 3 y maximo 80, y formato de usuario
+
+	function chequearTwitter(idTwitter){
+		var twitter = $(idTwitter).val();
+
+		if(twitter===""){
+			return true
+		}
+		else if(twitter.length<3 || twitter.length>80){
+			alert("Usuario de twitter: minimo 3 caracteres, maximo 80")
+			return false
+		}
+		else{
+			if(!chequearFormatoTwitter(twitter)){
+				alert("Debe ingresar un usuario de twitter valido")
+				return false
+			}
+			return true
+		}
+	}
+
+
+	//Campo Obligatorio
+	//Chequea formato de email
+
+	function chequearEmail(idEmail){
+		var email = $(idEmail).val();
+
+		if(email===''){
+			alert("Debe ingresar un email");
+			return false
+		}
+
+		if(!chequearFormatoEmail(email)){
+			alert("Debe ingresar un email valido");
+			return false
+		}
+
+		return true
+	}
+
+
+	//Campo Opcional
+	//Chequea formato de numero movil
+
+	function chequearNumero(idNumero){
+		var telefono = $(idNumero).val();
+
+		if(telefono===""){
+			return true
+		}
+
+		if(!chequearFormatoNumero(telefono)){
+			alert("Debe ingresar un numero valido");
+			return false
+		}
+
+		return true
+	}
+
+
+	function chequearEspecialidadSolicitante(idEspecialidad){
+		var especialidades = $(idEspecialidad);
+
+		if(especialidades.length>1){
+			alert("Debe seleccionar 1 especialidad");
+			return false
+		}
+		else{
+			return true
+		}
+	}
+
+	function chequearArchivosSolicitante(idArchivos){
+		var archivos = $(idArchivos);
+		var numeroArchivos = 0;
+
+		for(i=0;i<archivos.length;i++){
+			numeroArchivos = numeroArchivos + archivos[i].files.length
+		}
+		if(numeroArchivos>5){
+			alert("Debe subir maximo 5 archivos");
+			return false
+		}
+
+		return true
+	}
+
+	function chequearRegionesSolicitante(idRegiones){
+		var regiones = $(idRegiones);
+
+		if(regiones.length>5 || regiones.length<1 || regiones.val() ==="sin-region"){
+			alert("Regiones: Maximo 5 regiones seleccionadas, minimo 1");
+			return false
+		}
+		else{
+			return true
+		}
+	}
+
+
+	function chequearComunasSolicitante(idComunas){
+		var comunas = $(idComunas);
+
+		if(comunas.length>5 || comunas.length<1 || comunas.val() ==="sin-comuna"){
+			alert("Comunas: Maximo 5 comunas seleccionadas, minimo 1");
+			return false
+		}
+		else{
+			return true
+		}
+	}
+
+	function chequearSolicitud(){
+		return chequearRegionesSolicitante("#regiones-solicitante option:selected") &&
+		chequearComunasSolicitante("#comunas-solicitante option:selected") &&
+		chequearNombre("#nombre-solicitante") && chequearExperiencia("#sintomas-solicitante") &&
+		chequearEspecialidadSolicitante("#especialidad-solicitante option:selected") &&
+		chequearArchivosSolicitante("#div-archivos-solicitante input[type='file']") &&
+		chequearTwitter("#twitter-solicitante") && chequearEmail("#email-solicitante") &&
+		chequearNumero("#celular-solicitante")
+	}
+
+
+
+	// Agregar nuevos inputs de archivos al agregar medico
 	$("#boton-foto-medico").click(function(){
 		var numero_inputs = $("#div-foto-medico input[type='file']").length
 		if(numero_inputs<5){
@@ -81,6 +306,16 @@ jQuery(document).ready(function () {
 		else
 			alert("Maximo 5 archivos")
 	  });
+
+	// Agregar nuevos inputs de archivos al solicitante
+	$("#boton-archivos-solicitante").click(function(){
+		var numero_inputs = $("#div-archivos-solicitante input[type='file']").length
+		if(numero_inputs<5){
+			$("#div-archivos-solicitante").append("<input class='form-control-file' name='archivos-solicitante' id='archivos-solicitante' type='file'>");
+		}
+		else
+			alert("Maximo 5 archivos")
+	});
 
 
 	// Para que las comunas se filtren por region
@@ -114,128 +349,90 @@ jQuery(document).ready(function () {
 	});
 	jQuery('#comunas').change(function () {
 		if (jQuery(this).val() == 'sin-region') {
-			alert('selecciones Región');
+			alert('seleccione Región');
 		} else if (jQuery(this).val() == 'sin-comuna') {
 			alert('selecciones Comuna');
 		}
 	});
 	jQuery('#regiones').change(function () {
 		if (jQuery(this).val() == 'sin-region') {
-			alert('selecciones Región');
+			alert('seleccione Región');
 		}
 	});
 
-	// Verifica que se haya selecionado una regiony una comuna
 
-	function chequearRegionComuna(idRegion,idComuna){
-		var region = $(idRegion).val();
-		var comuna = $(idComuna).val();
-
-		if(region==="sin-region"){
-			alert("Seleccione una region");
-			return false
+	function valuesArray(valores) {
+		var values = []
+		for (i=0;i<valores.length;i++){
+			values[i]= valores[i].text
 		}
-		else if(comuna==="sin-comuna"){
-			alert("Seleccione una comuna");
-			return false
-		}
-		else{
-			return true
-		}
-	}
-
-	// Verifica que el nombre no sea vacio y que el largo sea menor a 30
-
-	function chequearNombre(idNombre){
-		var nombre = $(idNombre).val();
-
-		if(nombre===""){
-			alert("Ingrese su nombre");
-			return false
-		}
-		else if(nombre.length>30){
-			alert("Nombre: Maximo 30 caracteres");
-			return false
-		}
-		else{
-			return true
-		}
-	}
-
-	// Verifica que la experiencia tenga un largo menor a 500
-
-	function chequearExperiencia(idExperiencia){
-		var experiencia = $(idExperiencia).val();
-
-		if(experiencia.length>500){
-			alert("Experiencia: Maximo 500 caracteres");
-			return false
-		}
-		else{
-			return true
-		}
-	}
-
-	// Valida que las especialidades sean maximo 5 y minimo 1
-
-	function chequearEspecialidades(idEspecialidades){
-		var especialidades = $(idEspecialidades)
-
-		if(especialidades.length>5 || especialidades.length<1){
-			alert("Especialidades: Maximo 5 especialidades seleccionadas, minimo 1");
-			return false
-		}
-		else{
-			return true
-		}
-	}
-
-	//Valida que las fotos sean min 1 y max 5
-
-	function chequearFotos(idFotos){
-		var fotos = $(idFotos)
-		var numeroFotos = 0
-
-		for(i=0;i<fotos.length;i++){
-			numeroFotos = numeroFotos + fotos[i].files.length
-		}
-		if(numeroFotos<1 || numeroFotos>5){
-			alert("Debe subir minimo 1 foto y maximo 5")
-			return false
-		}
-
-		return true
-	}
-
-	//Campo Opcional
-	//Chequea largo minimo 3 y maximo 80, y formato de usuario
-
-	function chequearTwitter(idTwitter){
-
-	}
-
-	//Campo Obligatorio
-	//Chequea formato de email
-
-	function chequearEmail(idEmail){
-
-	}
-
-	//Campo Opcional
-	//Chequea formato de numero movil
-
-	function chequearNumero(idNumero){
-
+		return values
 	}
 
 
+	// Para que las comunas se filtren por region en las solicitudes
+	var iRegion = 0;
+	var htmlRegion = '<option value="sin-region">Seleccione región</option><option value="sin-region">--</option>';
+	var htmlComunas = '<option value="sin-region">Seleccione comuna</option><option value="sin-region">--</option>';
+
+	jQuery.each(RegionesYcomunas.regiones, function () {
+		htmlRegion = htmlRegion + '<option value="' + RegionesYcomunas.regiones[iRegion].NombreRegion + '">' + RegionesYcomunas.regiones[iRegion].NombreRegion + '</option>';
+		iRegion++;
+	});
+
+	jQuery('#regiones-solicitante').html(htmlRegion);
+	jQuery('#comunas-solicitante').html(htmlComunas);
+
+	jQuery('#regiones-solicitante').change(function () {
+		var iRegiones = 0;
+		var valorRegion = jQuery('#regiones-solicitante option:selected');
+		valorRegion = valuesArray(valorRegion);
+		var htmlComuna = '<option value="sin-comuna">Seleccione comuna</option><option value="sin-comuna">--</option>';
+		jQuery.each(RegionesYcomunas.regiones, function () {
+			if (valorRegion.includes(RegionesYcomunas.regiones[iRegiones].NombreRegion)) {
+				var iComunas = 0;
+				jQuery.each(RegionesYcomunas.regiones[iRegiones].comunas, function () {
+					htmlComuna = htmlComuna + '<option value="' + RegionesYcomunas.regiones[iRegiones].comunas[iComunas] + '">' + RegionesYcomunas.regiones[iRegiones].comunas[iComunas] + '</option>';
+					iComunas++;
+				});
+			}
+			iRegiones++;
+		});
+		jQuery('#comunas-solicitante').html(htmlComuna);
+	});
+	jQuery('#comunas-solicitante').change(function () {
+		if (jQuery(this).val() == 'sin-region') {
+			alert('seleccione Región');
+		} else if (jQuery(this).val() == 'sin-comuna') {
+			alert('seleccione Comuna');
+		}
+	});
+	jQuery('#regiones-solicitante').change(function () {
+		if (jQuery(this).val() == 'sin-region') {
+			alert('seleccione Región');
+		}
+	});
+
+	$("#formulariosolicitud").submit(function(){
+		var chequearTwitterEmail = chequearTwitter("#twitter-solicitante") && chequearEmail("#email-solicitante")
+		var chequearEspecialidadSintomas = chequearExperiencia("#sintomas-solicitante") && chequearEspecialidadSolicitante("#especialidad-solicitante option:selected")
+		var chequearLugarNombre = chequearRegionesSolicitante("#regiones-solicitante option:selected") && chequearComunasSolicitante("#comunas-solicitante option:selected") && chequearNombre("#nombre-solicitante")
+		var chequearCelularArchivos = chequearArchivosSolicitante("#div-archivos-solicitante input[type='file']") && chequearNumero("#celular-solicitante")
+
+		return chequearTwitterEmail && chequearEspecialidadSintomas && chequearLugarNombre && chequearCelularArchivos
+	});
 
 	$("#formulario").submit(function(){
 		return chequearRegionComuna("#regiones","#comunas") && 
 		chequearNombre("#nombre-medico") && chequearExperiencia("#experiencia-medico") && 
-		chequearEspecialidades("#especialidades-medico option:selected") && chequearFotos("#div-foto-medico input[type='file']")
-	  });
+		chequearEspecialidades("#especialidades-medico option:selected") && chequearFotos("#div-foto-medico input[type='file']") &&
+		chequearTwitter("#twitter-medico") && chequearEmail("#email-medico") && chequearNumero("#celular-medico")
+	});
 
-
+	jQuery(document).ready(function($) {
+		$(".clickable-row").click(function() {
+			window.location = $(this).data("href");
+		});
+	});
 
 });

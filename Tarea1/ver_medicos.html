@@ -1,11 +1,13 @@
-<html>
+<!DOCTYPE html>
+<html lang="es">
     <head>
         <title>Médicos</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
-        <script type="text/javascript" src="./js/jquery-3.4.1.min.js"></script>
-        <script type="text/javascript" src="./js/javascript.js"></script>
+        <link rel="stylesheet" type="text/css" href="./css/mycss.css">
+        <script src="./js/jquery-3.4.1.min.js"></script>
+        <script src="./js/javascript.js"></script>
     </head>
     <body>
         
@@ -37,5 +39,84 @@
               </ul>
             </div>
         </nav>
+
+        <!-- Table -->
+
+        <div class="row p-4">
+            <table class="table mx-auto justify-content-center border" style="width: 80%">
+                <thead>
+                <tr>
+                    <th scope="col">Nombre Médicos</th>
+                    <th scope="col">Especialidades</th>
+                    <th scope="col">Comuna</th>
+                    <th scope="col">Datos de contacto</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr class='clickable-row' data-href='detalle_medico.html'>
+                        <th scope="row">
+                            Juan González
+                        </th>
+                        <td>
+                            Cardiología <br> <br>
+                            Neurología
+                        </td>
+                        <td>
+                            Providencia
+                        </td>
+                        <td>
+                            juan.gonzalez@gmail.com
+                        </td>
+                    </tr>
+                <tr class='clickable-row' data-href='detalle_medico.html'>
+                    <th scope="row">María López</th>
+                    <td>Dermatología</td>
+                    <td>Maipú</td>
+                    <td>
+                        maria.lopez@gmail.com <br> <br>
+                        @marialop <br> <br>
+                        +56935744987
+                    </td>
+                </tr>
+                <tr class='clickable-row' data-href='detalle_medico.html'>
+                    <th scope="row">Daniel Pérez</th>
+                    <td>
+                        Traumatología <br> <br>
+                        Cardiología <br> <br>
+                        Medicina del deporte <br> <br>
+                        Neumología <br> <br>
+                        Oftalmología
+                    </td>
+                    <td>La Reina</td>
+                    <td>
+                        daniel.perez@gmail.com <br> <br>
+                        +56937611086
+                    </td>
+                </tr>
+                <tr class='clickable-row' data-href='detalle_medico.html'>
+                    <th scope="row">Cristobal Sánchez</th>
+                    <td>
+                        Otorrinolaringología <br> <br>
+                        Pediatría
+                    </td>
+                    <td>Aisén</td>
+                    <td>
+                        cristobal.sanchez@hotmail.com <br> <br>
+                        @crisanchez
+                    </td>
+                </tr>
+                <tr class='clickable-row' data-href='detalle_medico.html'>
+                    <th scope="row">Denisse Alvarado</th>
+                    <td>Medicina de
+                        urgencias</td>
+                    <td>San Miguel</td>
+                    <td>
+                        denisse.alvarado@hotmail.com
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
     </body>
 </html>
