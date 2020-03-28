@@ -39,56 +39,61 @@
         </div>
     </nav>
 
-    <div class="m-3">
-        <div class="row mx-auto justify-content-center p-2">
+    <div class="p-5">
+        <div class="row mx-auto justify-content-center rounded-pill py-4">
             <h1>Detalle del Médico</h1>
         </div>
-        <div class="row justify-content-center pb-4 pt-2">
-            <img src="./imgs/medico.jpg!d" alt="Foto del Médico" width="320" height="240" class="mx-2">
-            <img src="./imgs/medico.jpg!d" alt="Foto del Médico" width="320" height="240" class="mx-2">
-            <img src="./imgs/medico.jpg!d" alt="Foto del Médico" width="320" height="240" class="mx-2">
-            <img src="./imgs/medico.jpg!d" alt="Foto del Médico" width="320" height="240" class="mx-2">
-            <img src="./imgs/medico.jpg!d" alt="Foto del Médico" width="320" height="240" class="mx-2">
+        <div class="row mx-auto justify-content-center my-4 py-4 rounded">
+            <img src="./imgs/medico.jpg!d" alt="Foto del Médico" width="320" height="240" class="mx-2 rounded border border-dark" id="img-1" onclick="mostrarImagen('img-div', 'img-1')">
+            <img src="./imgs/solicitud_data.png" alt="Foto del Médico" width="320" height="240" class="mx-2 rounded border border-dark" id="img-2" onclick="mostrarImagen('img-div', 'img-2')">
+            <img src="./imgs/medic_data.png" alt="Foto del Médico" width="320" height="240" class="mx-2 rounded border border-dark" id="img-3" onclick="mostrarImagen('img-div', 'img-3')">
+            <img src="./imgs/solicitud.png" alt="Foto del Médico" width="320" height="240" class="mx-2 rounded border border-dark" id="img-4" onclick="mostrarImagen('img-div', 'img-4')">
+            <img src="./imgs/medic.png" alt="Foto del Médico" width="320" height="240" class="mx-2 rounded border border-dark" id="img-5" onclick="mostrarImagen('img-div', 'img-5')">
         </div>
-        <div class="row mx-auto justify-content-center pb-4 pt-2">
-            <table class="table table-striped" style="width: 80%">
-                <thead>
-                <tr class="text-center font-weight-bold">
-                    <td>Nombre</td>
-                    <td>Email de contacto</td>
-                </tr>
-                <tr class="text-center">
-                    <td>Juan González</td>
-                    <td>juan.gonzalez@gmail.com</td>
-                </tr>
-                </thead>
-                <tbody>
-                <tr class="text-center font-weight-bold">
-                    <td>Twitter de contacto</td>
-                    <td>Número de contacto</td>
-                </tr>
-                <tr class="text-center">
-                    <td>Sin información</td>
-                    <td>Sin información</td>
-                </tr>
-                <tr class="text-center font-weight-bold">
-                    <td>Región</td>
-                    <td>Comuna</td>
-                </tr>
-                <tr class="text-center">
-                    <td>Región Metropolitana</td>
-                    <td>Providencia</td>
-                </tr>
-                <tr class="text-center font-weight-bold">
-                    <td>Especialidades</td>
-                    <td>Experiencia</td>
-                </tr>
-                <tr class="text-center">
-                    <td>Cardiología <br> <br>Neurología</td>
-                    <td style="width: 50%" class="align-middle">5 años de experiencia en cardiología, trabajando en hospitales públicos.</td>
-                </tr>
-                </tbody>
-            </table>
+        <div class="row mx-auto justify-content-center my-4 py-4 rounded">
+            <div id="img-div">
+
+            </div>
+            <div class="col py-4 pr-5 d-flex justify-content-center">
+                <table class="table table-striped border table-bordered" style="width: 80%">
+                    <thead>
+                    <tr class="text-center font-weight-bold">
+                        <td>Nombre</td>
+                        <td>Email de contacto</td>
+                    </tr>
+                    <tr class="text-center">
+                        <td>Juan González</td>
+                        <td>juan.gonzalez@gmail.com</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr class="text-center font-weight-bold">
+                        <td>Twitter de contacto</td>
+                        <td>Número de contacto</td>
+                    </tr>
+                    <tr class="text-center">
+                        <td>Sin información</td>
+                        <td>Sin información</td>
+                    </tr>
+                    <tr class="text-center font-weight-bold">
+                        <td>Región</td>
+                        <td>Comuna</td>
+                    </tr>
+                    <tr class="text-center">
+                        <td>Región Metropolitana</td>
+                        <td>Providencia</td>
+                    </tr>
+                    <tr class="text-center font-weight-bold">
+                        <td>Especialidades</td>
+                        <td>Experiencia</td>
+                    </tr>
+                    <tr class="text-center">
+                        <td>Cardiología <br> <br>Neurología</td>
+                        <td style="width: 50%" class="align-middle">5 años de experiencia en cardiología, trabajando en hospitales públicos.</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
         <div class="col text-center p-4">
             <a href="ver_medicos.html" class="btn btn-primary">Volver a la lista de Médicos</a>

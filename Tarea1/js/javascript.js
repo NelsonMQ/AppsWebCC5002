@@ -285,17 +285,6 @@ jQuery(document).ready(function () {
 		}
 	}
 
-	function chequearSolicitud(){
-		return chequearRegionesSolicitante("#regiones-solicitante option:selected") &&
-		chequearComunasSolicitante("#comunas-solicitante option:selected") &&
-		chequearNombre("#nombre-solicitante") && chequearExperiencia("#sintomas-solicitante") &&
-		chequearEspecialidadSolicitante("#especialidad-solicitante option:selected") &&
-		chequearArchivosSolicitante("#div-archivos-solicitante input[type='file']") &&
-		chequearTwitter("#twitter-solicitante") && chequearEmail("#email-solicitante") &&
-		chequearNumero("#celular-solicitante")
-	}
-
-
 
 	// Agregar nuevos inputs de archivos al agregar medico
 	$("#boton-foto-medico").click(function(){
@@ -436,3 +425,13 @@ jQuery(document).ready(function () {
 	});
 
 });
+
+function mostrarImagen(idDiv, idImg){
+	var div = document.getElementById(idDiv);
+	div.className = "col py-4 text-center pl-5";
+	div.removeChild(div.childNodes[0]);
+	var img = document.getElementById(idImg).cloneNode();
+	img.width = 800;
+	img.height = 600;
+	document.getElementById(idDiv).appendChild(img);
+}
