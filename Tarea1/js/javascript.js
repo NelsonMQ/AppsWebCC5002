@@ -350,62 +350,53 @@ jQuery(document).ready(function () {
 	});
 
 
-	function valuesArray(valores) {
-		var values = []
-		for (i=0;i<valores.length;i++){
-			values[i]= valores[i].text
-		}
-		return values
-	}
+    var iRegion = 0;
+    var htmlRegion = '<option value="sin-region">Seleccione región</option><option value="sin-region">--</option>';
+    var htmlComunas = '<option value="sin-region">Seleccione comuna</option><option value="sin-region">--</option>';
+
+    jQuery.each(RegionesYcomunas.regiones, function () {
+        htmlRegion = htmlRegion + '<option value="' + RegionesYcomunas.regiones[iRegion].NombreRegion + '">' + RegionesYcomunas.regiones[iRegion].NombreRegion + '</option>';
+        iRegion++;
+    });
+
+    jQuery('#region-solicitante').html(htmlRegion);
+    jQuery('#comuna-solicitante').html(htmlComunas);
+
+    jQuery('#region-solicitante').change(function () {
+        var iRegiones = 0;
+        var valorRegion = jQuery(this).val();
+        var htmlComuna = '<option value="sin-comuna">Seleccione comuna</option><option value="sin-comuna">--</option>';
+        jQuery.each(RegionesYcomunas.regiones, function () {
+            if (RegionesYcomunas.regiones[iRegiones].NombreRegion == valorRegion) {
+                var iComunas = 0;
+                jQuery.each(RegionesYcomunas.regiones[iRegiones].comunas, function () {
+                    htmlComuna = htmlComuna + '<option value="' + RegionesYcomunas.regiones[iRegiones].comunas[iComunas] + '">' + RegionesYcomunas.regiones[iRegiones].comunas[iComunas] + '</option>';
+                    iComunas++;
+                });
+            }
+            iRegiones++;
+        });
+        jQuery('#comuna-solicitante').html(htmlComuna);
+    });
+    jQuery('#comuna-solicitante').change(function () {
+        if (jQuery(this).val() == 'sin-region') {
+            alert('seleccione Región');
+        } else if (jQuery(this).val() == 'sin-comuna') {
+            alert('selecciones Comuna');
+        }
+    });
+    jQuery('#region-solicitante').change(function () {
+        if (jQuery(this).val() == 'sin-region') {
+            alert('seleccione Región');
+        }
+    });
 
 
-	// Para que las comunas se filtren por region en las solicitudes
-	var iRegion = 0;
-	var htmlRegion = '<option value="sin-region">Seleccione región</option><option value="sin-region">--</option>';
-	var htmlComunas = '<option value="sin-region">Seleccione comuna</option><option value="sin-region">--</option>';
-
-	jQuery.each(RegionesYcomunas.regiones, function () {
-		htmlRegion = htmlRegion + '<option value="' + RegionesYcomunas.regiones[iRegion].NombreRegion + '">' + RegionesYcomunas.regiones[iRegion].NombreRegion + '</option>';
-		iRegion++;
-	});
-
-	jQuery('#regiones-solicitante').html(htmlRegion);
-	jQuery('#comunas-solicitante').html(htmlComunas);
-
-	jQuery('#regiones-solicitante').change(function () {
-		var iRegiones = 0;
-		var valorRegion = jQuery('#regiones-solicitante option:selected');
-		valorRegion = valuesArray(valorRegion);
-		var htmlComuna = '<option value="sin-comuna">Seleccione comuna</option><option value="sin-comuna">--</option>';
-		jQuery.each(RegionesYcomunas.regiones, function () {
-			if (valorRegion.includes(RegionesYcomunas.regiones[iRegiones].NombreRegion)) {
-				var iComunas = 0;
-				jQuery.each(RegionesYcomunas.regiones[iRegiones].comunas, function () {
-					htmlComuna = htmlComuna + '<option value="' + RegionesYcomunas.regiones[iRegiones].comunas[iComunas] + '">' + RegionesYcomunas.regiones[iRegiones].comunas[iComunas] + '</option>';
-					iComunas++;
-				});
-			}
-			iRegiones++;
-		});
-		jQuery('#comunas-solicitante').html(htmlComuna);
-	});
-	jQuery('#comunas-solicitante').change(function () {
-		if (jQuery(this).val() == 'sin-region') {
-			alert('seleccione Región');
-		} else if (jQuery(this).val() == 'sin-comuna') {
-			alert('seleccione Comuna');
-		}
-	});
-	jQuery('#regiones-solicitante').change(function () {
-		if (jQuery(this).val() == 'sin-region') {
-			alert('seleccione Región');
-		}
-	});
 
 	$("#formulariosolicitud").submit(function(){
 		var chequearTwitterEmail = chequearTwitter("#twitter-solicitante") && chequearEmail("#email-solicitante")
 		var chequearEspecialidadSintomas = chequearExperiencia("#sintomas-solicitante") && chequearEspecialidadSolicitante("#especialidad-solicitante option:selected")
-		var chequearLugarNombre = chequearRegionesSolicitante("#regiones-solicitante option:selected") && chequearComunasSolicitante("#comunas-solicitante option:selected") && chequearNombre("#nombre-solicitante")
+		var chequearLugarNombre = chequearRegionComuna("#regiones-solicitante","#comunas-solicitante") && chequearNombre("#nombre-solicitante")
 		var chequearCelularArchivos = chequearArchivosSolicitante("#div-archivos-solicitante input[type='file']") && chequearNumero("#celular-solicitante")
 
 		return chequearTwitterEmail && chequearEspecialidadSintomas && chequearLugarNombre && chequearCelularArchivos
