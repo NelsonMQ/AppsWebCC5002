@@ -84,9 +84,13 @@ jQuery(document).ready(function () {
 
 	function chequearNombre(idNombre){
 		var nombre = $(idNombre).val();
-
+		var regex = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/
 		if(nombre.length<1){
 			alert("Ingrese su nombre");
+			return false
+		}
+		else if(!regex.test(nombre)){
+			alert("Su nombre no debe contener numeros")
 			return false
 		}
 		else if(nombre.length>30){
