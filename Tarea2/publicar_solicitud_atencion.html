@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>Publicar solicitud de atención</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
+        <script src="./js/jquery-3.4.1.min.js"></script>
+        <script src="./js/javascript.js"></script>
+        <!-- Popper JS -->
+        <script src="./js/popper.min.js"></script>
+
+        <!-- Latest compiled JavaScript -->
+        <script src="./js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        
+        <!-- Navbar -->
+
+        <nav class="navbar navbar-expand-lg navbar-dark p m-0" style="background-color: #00539C;">
+            <a class="navbar-brand text-white" href="#"><i class="fa fa-rocket" aria-hidden="true"></i></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item mx-2">
+                  <a class="nav-link text-white" href="index.php">Inicio</a>
+                </li>
+                <li class="nav-item mx-2">
+                  <a class="nav-link text-white" href="agregar_datos_medicos.html">Agregar datos de médico</a>
+                </li>
+                <li class="nav-item mx-2">
+                    <a class="nav-link text-white" href="ver_medicos.php">Ver médicos</a>
+                </li>
+                <li class="nav-item mx-2">
+                    <a class="nav-link text-white" href="publicar_solicitud_atencion.html">Publicar solicitud de atención</a>
+                </li>
+                <li class="nav-item mx-2">
+                    <a class="nav-link text-white" href="ver_solicitudes_atencion.php">Ver solicitudes de atención</a>
+                </li>
+              </ul>
+            </div>
+        </nav>
+
+        <!-- Form -->
+
+        <div class="p-4 border d-flex justify-content-center" style="background-color: rgb(238,230,224)">
+            <form class="m-4 rounded" enctype="multipart/form-data" action="agregar_solicitud.php" method="POST" id="formulariosolicitud" style="width: 80%;">
+                <div class="form-row p-4 d-flex justify-content-center">
+                    <div class="form-group col-4 mx-auto">
+                        <label class="font-weight-bold">Nombre</label>
+                        <input type="text" name="nombre-solicitante" size="30" maxlength="30" class="form-control" id="nombre-solicitante" required>
+                    </div>
+                    <div class="form-group col-4 mx-auto">
+                        <label class="font-weight-bold">Email de contacto</label>
+                        <input class="form-control" name="email-solicitante" id="email-solicitante" type="email" size="80" required>
+                    </div>
+                </div>
+                <div class="form-row p-4 d-flex justify-content-center">
+                    <div class="form-group col-4 mx-auto">
+                        <label class="font-weight-bold">Twitter de contacto</label>
+                        <input class="form-control" name="twitter-solicitante" id="twitter-solicitante" size="80" type="text">
+                    </div>
+                    <div class="form-group col-4 mx-auto">
+                        <label class="font-weight-bold">Número de contacto</label>
+                        <input class="form-control" name="celular-solicitante" id="celular-solicitante" size="15" type="tel">
+                    </div>
+                </div>
+                <div class="form-row p-4 d-flex justify-content-center">
+                    <div class="form-group col-4 mx-auto">
+                        <label for="region-solicitante" class="font-weight-bold">Región</label>
+                        <select id="region-solicitante" name="region-solicitante" size="8" class="form-control" required></select>
+                    </div>
+                    <div class="form-group col-4 mx-auto">
+                        <label for="comuna-solicitante" class="font-weight-bold">Comuna</label>
+                        <select id="comuna-solicitante" name="comuna-solicitante" size="8" class="form-control" required></select>
+                    </div>
+                </div>
+                <div class="form-row p-4 d-flex justify-content-center">
+                    <div class="form-group col-4 mx-auto">
+                        <label class="font-weight-bold">Especialidad</label>
+                        <select class="form-control" name="especialidad-solicitud" id="especialidad-solicitud" size="8" required>
+                            <option value="1">Cardiología</option>
+                            <option value="2">Gastroenterología</option>
+                            <option value="3">Endocrinología</option>
+                            <option value="4">Epidemiología</option>
+                            <option value="4">Geriatría</option>
+                            <option value="5">Hematología</option>
+                            <option value="6">Infectología</option>
+                            <option value="7">Medicina del deporte</option>
+                            <option value="8">Medicina de urgencias</option>
+                            <option value="9">Medicina interna</option>
+                            <option value="10">Nefrología</option>
+                            <option value="11">Neumología</option>
+                            <option value="12">Neurología</option>
+                            <option value="13">Nutriología</option>
+                            <option value="14">Oncología</option>
+                            <option value="15">Pediatría</option>
+                            <option value="16">Psiquiatría</option>
+                            <option value="17">Reumatología</option>
+                            <option value="18">Toxicología</option>
+                            <option value="19">Dermatología</option>
+                            <option value="20">Ginecología</option>
+                            <option value="21">Oftalmología</option>
+                            <option value="22">Otorrinolaringología</option>
+                            <option value="23">Urología</option>
+                            <option value="24">Traumatología</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-4 mx-auto">
+                        <label class="font-weight-bold">Descripción de síntomas</label>
+                        <textarea class="form-control" rows="8" cols="40" name="sintomas-solicitante" id="sintomas-solicitante" maxlength="500"></textarea>
+                    </div>
+                </div>
+                <div class="form-row p-4 d-flex justify-content-center">
+                    <div class="form-group col-8 mx-auto d-flex justify-content-center align-middle">
+                        <div id="div-archivos-solicitante">
+                            <label class="font-weight-bold">Archivos complementarios</label>
+                            <input class="form-control-file" name="archivos-solicitante[]" id="archivos-solicitante" type="file">
+                        </div>
+                        <div class="mx-5 my-auto">
+                            <input type="button" id="boton-archivos-solicitante" value="Agregar otro archivo" class="mt-4 btn btn-primary">
+                        </div>
+                    </div>
+                </div>
+                <div class="col text-center p-4">
+                    <input type="submit" value="Publicar" class="btn btn-success">
+                </div>
+            </form>
+        </div>
+
+
+    </body>
+</html>

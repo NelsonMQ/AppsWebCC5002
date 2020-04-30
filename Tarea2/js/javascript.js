@@ -160,7 +160,7 @@ var RegionesYcomunas = {regiones : [
     ]
   },
   {
-    region: "Región del Libertador Gral. Bernardo O’Higgins",
+    region: "Región del Libertador Bernardo Ohiggins",
     comunas: [
       "Rancagua",
       "Codegua",
@@ -360,7 +360,7 @@ var RegionesYcomunas = {regiones : [
     ]
   },
   {
-    region: "Región Aisén del Gral. Carlos Ibáñez del Campo",
+    region: "Región Aisén del General Carlos Ibáñez del Campo",
     comunas: [
       "Coihaique",
       "Lago Verde",
@@ -375,7 +375,7 @@ var RegionesYcomunas = {regiones : [
     ]
   },
   {
-    region: "Región de Magallanes y de la Antártica Chilena",
+    region: "Región de Magallanes y la Antártica Chilena",
     comunas: [
       "Punta Arenas",
       "Laguna Blanca",
@@ -392,12 +392,12 @@ var RegionesYcomunas = {regiones : [
   },
 
   {
-    region: "Arica y Parinacota",
+    region: "Región Arica y Parinacota",
     comunas: ["Arica", "Camarones", "Putre", "General Lagos"]
   },
 
   {
-    region: "Región de Ñuble",
+    region: "Región del Ñuble",
     comunas: [
       "Cobquecura",
       "Coelemu",
@@ -626,37 +626,12 @@ jQuery(document).ready(function () {
 		return true
 	}
 
-	function chequearRegionesSolicitante(idRegiones){
-		var regiones = $(idRegiones);
-
-		if(regiones.length>5 || regiones.length<1 || regiones.val() ==="sin-region"){
-			alert("Regiones: Maximo 5 regiones seleccionadas, minimo 1");
-			return false
-		}
-		else{
-			return true
-		}
-	}
-
-
-	function chequearComunasSolicitante(idComunas){
-		var comunas = $(idComunas);
-
-		if(comunas.length>5 || comunas.length<1 || comunas.val() ==="sin-comuna"){
-			alert("Comunas: Maximo 5 comunas seleccionadas, minimo 1");
-			return false
-		}
-		else{
-			return true
-		}
-	}
-
 
 	// Agregar nuevos inputs de archivos al agregar medico
 	$("#boton-foto-medico").click(function(){
 		var numero_inputs = $("#div-foto-medico input[type='file']").length
 		if(numero_inputs<5){
-			$("#div-foto-medico").append("<input class='form-control-file' name='foto-medico' id='foto-medico' type='file'>");
+			$("#div-foto-medico").append("<input class='form-control-file' type='file' name='foto-medico[]'>");
 		}
 		else
 			alert("Maximo 5 archivos")
@@ -666,7 +641,7 @@ jQuery(document).ready(function () {
 	$("#boton-archivos-solicitante").click(function(){
 		var numero_inputs = $("#div-archivos-solicitante input[type='file']").length
 		if(numero_inputs<5){
-			$("#div-archivos-solicitante").append("<input class='form-control-file' name='archivos-solicitante' id='archivos-solicitante' type='file'>");
+			$("#div-archivos-solicitante").append("<input class='form-control-file' name='archivos-solicitante[]' id='archivos-solicitante' type='file'>");
 		}
 		else
 			alert("Maximo 5 archivos")
@@ -758,7 +733,7 @@ jQuery(document).ready(function () {
     });
 
 
-
+  
 	$("#formulariosolicitud").submit(function(){
 		var chequearTwitterEmail = chequearTwitter("#twitter-solicitante") && chequearEmail("#email-solicitante")
 		var chequearEspecialidadSintomas = chequearExperiencia("#sintomas-solicitante") && chequearEspecialidadSolicitante("#especialidad-solicitante option:selected")
@@ -774,7 +749,7 @@ jQuery(document).ready(function () {
 		chequearEspecialidades("#especialidades-medico option:selected") && chequearFotos("#div-foto-medico input[type='file']") &&
 		chequearTwitter("#twitter-medico") && chequearEmail("#email-medico") && chequearNumero("#celular-medico")
 	});
-
+  
 	jQuery(document).ready(function($) {
 		$(".clickable-row").click(function() {
 			window.location = $(this).data("href");
