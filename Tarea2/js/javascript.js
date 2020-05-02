@@ -76,8 +76,8 @@ var RegionesYcomunas = {regiones : [
       "Sierra Gorda",
       "Taltal",
       "Calama",
-      "Ollagüe",
-      "San Pedro de Atacama",
+      "Ollague",
+      "San Pedro Atacama",
       "Tocopilla",
       "María Elena"
     ]
@@ -103,10 +103,9 @@ var RegionesYcomunas = {regiones : [
       "Coquimbo",
       "Andacollo",
       "La Higuera",
-      "Paiguano",
+      "Paihuano",
       "Vicuña",
       "Illapel",
-      "Canela",
       "Los Vilos",
       "Salamanca",
       "Ovalle",
@@ -137,7 +136,7 @@ var RegionesYcomunas = {regiones : [
       "Petorca",
       "Zapallar",
       "Quillota",
-      "Calera",
+      "La Calera",
       "Hijuelas",
       "La Cruz",
       "Nogales",
@@ -149,8 +148,7 @@ var RegionesYcomunas = {regiones : [
       "Santo Domingo",
       "San Felipe",
       "Catemu",
-      "Llaillay",
-      "Panquehue",
+      "Llay Llay",
       "Putaendo",
       "Santa María",
       "Quilpué",
@@ -171,18 +169,17 @@ var RegionesYcomunas = {regiones : [
       "Las Cabras",
       "Machalí",
       "Malloa",
-      "San Francisco de Mostazal",
       "Olivar",
       "Peumo",
       "Pichidegua",
-      "Quinta de Tilcoco",
+      "Quinta Tilcoco",
       "Rengo",
       "Requínoa",
-      "San Vicente de Tagua Tagua",
+      "San Vicente",
       "Pichilemu",
       "La Estrella",
       "Litueche",
-      "Marchihue",
+      "Marchigue",
       "Navidad",
       "Paredones",
       "San Fernando",
@@ -227,7 +224,7 @@ var RegionesYcomunas = {regiones : [
       "Longaví",
       "Parral",
       "Retiro",
-      "San Javier de Loncomilla",
+      "San Javier",
       "Villa Alegre",
       "Yerbas Buenas"
     ]
@@ -267,7 +264,7 @@ var RegionesYcomunas = {regiones : [
       "Santa Bárbara",
       "Tucapel",
       "Yumbel",
-      "Alto Biobío"
+      "Alto Bio Bío"
     ]
   },
   {
@@ -284,11 +281,11 @@ var RegionesYcomunas = {regiones : [
       "Loncoche",
       "Melipeuco",
       "Nueva Imperial",
-      "Padre las Casas",
+      "Padre Las Casas",
       "Perquenco",
       "Pitrufquén",
       "Pucón",
-      "Saavedra",
+      "Puerto Saavedra",
       "Teodoro Schmidt",
       "Toltén",
       "Vilcún",
@@ -351,7 +348,7 @@ var RegionesYcomunas = {regiones : [
       "Purranque",
       "Puyehue",
       "Río Negro",
-      "San Juan de la Costa",
+      "San Juan",
       "San Pablo",
       "Chaitén",
       "Futaleufú",
@@ -362,13 +359,13 @@ var RegionesYcomunas = {regiones : [
   {
     region: "Región Aisén del General Carlos Ibáñez del Campo",
     comunas: [
-      "Coihaique",
+      "Coyhaique",
       "Lago Verde",
-      "Aisén",
+      "Aysén",
       "Cisnes",
       "Guaitecas",
       "Cochrane",
-      "O’Higgins",
+      "O’Higins",
       "Tortel",
       "Chile Chico",
       "Río Ibáñez"
@@ -381,19 +378,18 @@ var RegionesYcomunas = {regiones : [
       "Laguna Blanca",
       "Río Verde",
       "San Gregorio",
-      "Cabo de Hornos (Ex Navarino)",
       "Antártica",
       "Porvenir",
       "Primavera",
       "Timaukel",
-      "Natales",
+      "Puerto Natales",
       "Torres del Paine"
     ]
   },
 
   {
     region: "Región Arica y Parinacota",
-    comunas: ["Arica", "Camarones", "Putre", "General Lagos"]
+    comunas: ["Arica", "Camarones", "Putre", "Gral. Lagos"]
   },
 
   {
@@ -405,7 +401,7 @@ var RegionesYcomunas = {regiones : [
       "Portezuelo",
       "Quirihue",
       "Ránquil",
-      "Treguaco",
+      "Trehuaco",
       "Bulnes",
       "Chillán Viejo",
       "Chillán",
