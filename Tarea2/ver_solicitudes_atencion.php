@@ -1,9 +1,9 @@
 <?php
 require_once("consultas.php");
+require_once('db_config.php');
 
 #Conexion a la base de datos
-$db = new mysqli("localhost", "cc5002", "programacionweb", "tarea2")
-        or die('No se ha podido conectar: ' . $mysqli->connect_error);
+$db = DbConfig::getConnection();
 
 $db->set_charset("utf8");
 
@@ -118,7 +118,7 @@ $solicitudes_data = getSolicitudesData($db, $offset);
                     else{
                         echo '<li class="page-item"><a class="page-link" href="ver_solicitudes_atencion.php?page='.($page+1).'">Siguiente</a></li>';
                     }
-                        
+                    $db->close();   
                 ?>
             </ul>
         </nav>

@@ -1,6 +1,7 @@
 <?php
 require_once("validaciones.php");
 require_once("consultas.php");
+require_once('db_config.php');
 
 $errores = array();
 
@@ -23,10 +24,7 @@ if(count($errores)>0){
 }
 
 #Conexion a la base de datos
-$db = new mysqli("localhost", "cc5002", "programacionweb", "tarea2")
-        or die('No se ha podido conectar: ' . $mysqli->connect_error);
-
-$db->set_charset("utf8");
+$db = DbConfig::getConnection();
 
 $get_region_id = getRegionId($db, $_POST["region-solicitante"]);
 

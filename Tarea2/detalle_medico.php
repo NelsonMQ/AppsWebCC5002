@@ -1,11 +1,9 @@
 <?php
 require_once("consultas.php");
+require_once('db_config.php');
 
 #Conexion a la base de datos
-$db = new mysqli("localhost", "cc5002", "programacionweb", "tarea2")
-        or die('No se ha podido conectar: ' . $mysqli->connect_error);
-
-$db->set_charset("utf8");
+$db = DbConfig::getConnection();
 
 $id_medico;
 
@@ -17,6 +15,8 @@ $medico_data_by_id = getMedicoDataById($db, $id_medico)->fetch_assoc();
 $comunaRegion = getComunaRegionById($db, $medico_data_by_id["comuna_id"]);
 $images = getImagesById($db, $medico_data_by_id["id"]);
 $especialidades = getEspecialidadesMedico($db, $medico_data_by_id["id"]);
+
+$db->close();
 
 ?>
 

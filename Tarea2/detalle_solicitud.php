@@ -1,11 +1,9 @@
 <?php
 require_once("consultas.php");
+require_once('db_config.php');
 
 #Conexion a la base de datos
-$db = new mysqli("localhost", "cc5002", "programacionweb", "tarea2")
-        or die('No se ha podido conectar: ' . $mysqli->connect_error);
-
-$db->set_charset("utf8");
+$db = DbConfig::getConnection();
 
 $id_solicitud;
 
@@ -20,6 +18,8 @@ $comunaRegion = getComunaRegionById($db, $solicitud_data_by_id["comuna_id"]);
 $files = getFilesById($db, $solicitud_data_by_id["id"]);
 
 $especialidad = getEspecialidadSolicitante($db, $solicitud_data_by_id["especialidad_id"]);
+
+$db->close();
 
 ?>
 
